@@ -1,2 +1,2 @@
 # JS-Practice
-Practice Files for JavaScript
+Practice Files for JavaScript. These files are ones that I have made from tutorials from websites such as [freeCodeCamp](https://www.freecodecamp.org/) and youtube channels such as [The Net Ninja](https://www.thenetninja.co.uk/). 
