@@ -91,3 +91,4 @@ console.log(translatePigLatin("algorithm"));
 console.log(translatePigLatin("consonant"));
 console.log(translatePigLatin("schwartz"));
 console.log(translatePigLatin("rhythm"));
+console.log(translatePigLatin("gim"));
