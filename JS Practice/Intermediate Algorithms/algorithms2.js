@@ -55,5 +55,39 @@ function destroyer(arr) {
 }
 
 console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
-console.log(destroyer(["possum", "trollo", 12, "safari", "hotdog", 92, 65, "grandma", "bugati", "trojan", "yacht"],
-    "yacht", "possum", "trollo", "safari", "hotdog", "grandma", "bugati", "trojan"))
+console.log(destroyer(["possum", "trollo", 12, "safari", "hotdog", 92, 65, "grandma", "bugati", "trojan", "yacht"], "yacht", "possum", "trollo", "safari", "hotdog", "grandma", "bugati", "trojan"));
+
+//pig latin
+
+function translatePigLatin(str) {
+    let pigArr = str.split("");
+    let conArr = [];
+    let vowelRegex = /[aeiou]/ig;
+    let conRegex = /[bcdfghjklmnpqrstvwxys]/ig;
+    let tempCon = [];
+    if (vowelRegex.test(pigArr[0])) {
+        pigArr = pigArr.concat(["way"]).join("");
+    } else if (conRegex.test(pigArr[0])) {
+        for (let i = 0; i < pigArr.length; i++) {
+            if (pigArr[i].match(conRegex) && pigArr[i] != pigArr[pigArr.length - 1]) {
+                tempCon.push(pigArr[i]);
+                continue;
+            } else if (pigArr[i].match(vowelRegex)) {
+                conArr.push(pigArr.slice(pigArr.indexOf(pigArr[i])));
+                conArr = conArr.concat(tempCon).concat(["ay"]).flat().join("");
+                return conArr;
+            } else if (pigArr[i] == pigArr[pigArr.length - 1]) {
+                conArr = [...pigArr]
+                conArr.push('ay')
+                conArr = conArr.join("");
+                return conArr
+            }
+        }
+    }
+    return pigArr;
+}
+
+console.log(translatePigLatin("algorithm"));
+console.log(translatePigLatin("consonant"));
+console.log(translatePigLatin("schwartz"));
+console.log(translatePigLatin("rhythm"));
